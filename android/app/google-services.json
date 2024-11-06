@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "973827044242",
+    "project_id": "reacher-latest",
+    "storage_bucket": "reacher-latest.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973827044242:android:a64234500dcb886e9ac74b",
+        "android_client_info": {
+          "package_name": "com.example.reacher"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcJJLyHqB1HBs6jMsMp4u8lAhjKRqNU9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973827044242:android:2c4f8c62087ed08c9ac74b",
+        "android_client_info": {
+          "package_name": "com.example.reacher_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcJJLyHqB1HBs6jMsMp4u8lAhjKRqNU9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
