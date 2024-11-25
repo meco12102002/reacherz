@@ -6,6 +6,10 @@ import 'package:reacher/pages/login.dart';
 import 'package:reacher/theme/dark.dart';
 import 'package:reacher/theme/light.dart';
 import 'package:reacher/widgets/modules/module_b.dart';
+import 'package:reacher/widgets/modules/module_c.dart';
+import 'package:reacher/widgets/modules/module_d.dart';
+import 'package:reacher/widgets/modules/module_e.dart';
+import 'package:reacher/widgets/modules/module_f.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,10 +29,19 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       home: const AuthStateChecker(),
     routes: {
+      '/login': (context) => const AuthStateChecker(),
       '/moduleB': (context) => const ModuleB(),
+      '/moduleC': (context) => const ModuleC(),
+      '/moduleD': (context) => const ModuleD(),
+      '/moduleE': (context) => const ModuleE(),
+      '/moduleF': (context) => const ModuleF(),
+
+
     });
   }
 }
+
+
 
 class AuthStateChecker extends StatelessWidget {
   const AuthStateChecker({super.key}); // Added constructor

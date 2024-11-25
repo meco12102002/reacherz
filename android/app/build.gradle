@@ -48,5 +48,8 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:33.5.1')
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'androidx.webkit:webkit:1.12.1'
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.2'
+
 
 }

@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "973827044242",
-    "project_id": "reacher-latest",
-    "storage_bucket": "reacher-latest.firebasestorage.app"
+    "project_number": "332165817986",
+    "firebase_url": "https://enrollment-system-9e233-default-rtdb.firebaseio.com",
+    "project_id": "enrollment-system-9e233",
+    "storage_bucket": "enrollment-system-9e233.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:973827044242:android:a64234500dcb886e9ac74b",
+        "mobilesdk_app_id": "1:332165817986:android:83461b7e797ab187de369b",
         "android_client_info": {
           "package_name": "com.example.reacher"
         }
@@ -15,26 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAcJJLyHqB1HBs6jMsMp4u8lAhjKRqNU9Q"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:973827044242:android:2c4f8c62087ed08c9ac74b",
-        "android_client_info": {
-          "package_name": "com.example.reacher_app"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAcJJLyHqB1HBs6jMsMp4u8lAhjKRqNU9Q"
+          "current_key": "AIzaSyCN1Khe8Tjv0btuZLcUSGfyIlAcb_E6jVI"
         }
       ],
       "services": {

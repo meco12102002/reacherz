@@ -1,142 +1,111 @@
 import 'package:flutter/material.dart';
-import 'package:reacher/widgets/module_card.dart';
-import 'package:reacher/widgets/modules/module_a.dart';
-import 'package:reacher/widgets/modules/module_b.dart';
-import 'package:reacher/widgets/modules/module_c.dart';
-import 'package:reacher/widgets/modules/module_d.dart';
-import 'package:reacher/widgets/modules/module_e.dart';
-import 'package:reacher/widgets/modules/module_f.dart';
+import 'package:reacher/widgets/modules/module_navigation.dart'; // Import the new module navigation
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
-  void _navigateToModule(BuildContext context, String moduleName) {
-    Widget moduleWidget;
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
 
-    // Navigate to the correct module based on the moduleName
-    switch (moduleName) {
-      case 'ModuleA':
-        moduleWidget = const ModuleA(); // Instantiate Module A
-        break;
-      case 'ModuleB':
-        moduleWidget = const ModuleB(); // Instantiate Module B
-        break;
-      case 'ModuleC':
-        moduleWidget = const ModuleC(); // Instantiate Module C
-        break;
-      case 'ModuleD':
-        moduleWidget = const ModuleD(); // Instantiate Module D
-        break;
-      case 'ModuleE':
-        moduleWidget = const ModuleE(); // Instantiate Module E
-        break;
-      case 'ModuleF':
-        moduleWidget = const ModuleF(); // Instantiate Module F
-        break;
-      default:
-        moduleWidget = const SizedBox(); // Fallback if module not found
-    }
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  late AnimationController _animationController;
 
+  @override
+  void initState() {
+    super.initState();
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    )..repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  // Method to stop the music before navigating to another screen
+  void _stopMusicAndNavigate(Widget targetPage) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => moduleWidget,
-      ),
+      MaterialPageRoute(builder: (context) => targetPage),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Reacher E-Learning'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Lessons',
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              const SizedBox(height: 16), // Space between title and module cards
-
-              // Horizontally scrollable list of module cards
-              SizedBox(
-                height: 160, // Set height for the card container
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    GestureDetector(
-                      onTap: () => _navigateToModule(context, 'ModuleA'),
-                      child: const ModuleCard(
-                        title: 'Module A',
-                        description: 'Learn about the letter A',
-                        imageUrl: 'assets/images/A.png',
-                        moduleName: 'ModuleA',
-                      ),
-                    ),
-                    const SizedBox(width: 16), // Space between cards
-                    GestureDetector(
-                      onTap: () => _navigateToModule(context, 'ModuleB'),
-                      child: const ModuleCard(
-                        title: 'Module B',
-                        description: 'Learn about the letter B',
-                        imageUrl: 'assets/images/B.png',
-                          moduleName: 'ModuleB'
-                      ),
-                    ),
-                    const SizedBox(width: 16), // Space between cards
-                    GestureDetector(
-                      onTap: () => _navigateToModule(context, 'ModuleC'),
-                      child: const ModuleCard(
-                        title: 'Module C',
-                        description: 'Learn about the letter C',
-                        imageUrl: 'assets/images/C.png',
-                          moduleName: 'ModuleC'
-                      ),
-                    ),
-                    const SizedBox(width: 16), // Space between cards
-                    GestureDetector(
-                      onTap: () => _navigateToModule(context, 'ModuleD'),
-                      child: const ModuleCard(
-                        title: 'Module D',
-                        description: 'Learn about the letter D',
-                        imageUrl: 'assets/images/D.png',
-                          moduleName: 'ModuleD'
-                      ),
-                    ),
-                    const SizedBox(width: 16), // Space between cards
-                    GestureDetector(
-                      onTap: () => _navigateToModule(context, 'ModuleE'),
-                      child: const ModuleCard(
-                        title: 'Module E',
-                        description: 'Learn about the letter E',
-                        imageUrl: 'assets/images/E.png',
-                          moduleName: 'ModuleE'
-
-                      ),
-                    ),
-                    const SizedBox(width: 16), // Space between cards
-                    GestureDetector(
-                      onTap: () => _navigateToModule(context, 'ModuleF'),
-                      child: const ModuleCard(
-                        title: 'Module F',
-                        description: 'Learn about the letter F',
-                        imageUrl: 'assets/images/F.png',
-                          moduleName: 'ModuleF'
-                      ),
-                    ),
-                  ],
+      backgroundColor: const Color(0xFFF4F9FF),
+      body: Stack(
+        children: [
+          // Background decoration
+          Positioned.fill(
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xFF85D8CE), Color(0xFF085078)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
               ),
-              const SizedBox(height: 16), // Space after the cards
-              // Add more content here as needed without overflowing
-            ],
+            ),
           ),
-        ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Animated Header
+                  ScaleTransition(
+                    scale: Tween(begin: 1.0, end: 1.1).animate(_animationController),
+                    child: Center(
+                      child: Image.asset(
+                        'assets/images/kids_learning.png',
+                        height: 150,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  const Text(
+                    '🎉 Welcome to Reacher 🎉',
+                    style: TextStyle(
+                      fontFamily: 'ComicSans',
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      shadows: [
+                        Shadow(
+                          offset: Offset(2, 2),
+                          blurRadius: 4.0,
+                          color: Colors.black38,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  GestureDetector(
+                    onTap: () {
+                      _stopMusicAndNavigate(ModuleNavigation());
+                    },
+                    child: const Text(
+                      'Navigate to Modules',
+                      style: TextStyle(
+                        fontFamily: 'ComicSans',
+                        fontSize: 20,
+                        color: Colors.blueAccent,
+                      ),
+                    ),
+                  ),
+                  ModuleNavigation(), // Use the navigation module
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

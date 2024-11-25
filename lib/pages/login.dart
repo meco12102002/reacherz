@@ -122,17 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
-              const SizedBox(height: 4),
-              // Forgot password text
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "Forgot password?",
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: colorScheme.onSurface, // Ensures good visibility
-                  ),
-                ),
-              ),
+
               const SizedBox(height: 15),
 
               // Login button
